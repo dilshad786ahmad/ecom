@@ -122,7 +122,7 @@ const AppInitializer = ({ children }) => {
         setStatus('online');
       } catch (err) {
         setStatus('error');
-        setErrorMessage('Server is not open. Please start the backend server.');
+        setErrorMessage('Server is waking up (this can take up to 50 seconds on free hosting) or is temporarily offline. Please wait a moment and try again.');
       }
     };
 

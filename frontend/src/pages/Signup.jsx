@@ -20,7 +20,7 @@ const Signup = () => {
     }
     setError('');
     try {
-      const { data } = await axios.post('http://localhost:8000/api/auth/signup', {
+      const { data } = await axios.post('https://ecom-skc5.onrender.com/api/auth/signup', {
         firstName,
         lastName,
         email,

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api', // Backend running on port 8000
+  baseURL: 'https://ecom-skc5.onrender.com/api', // Backend running on render
   headers: {
     'Content-Type': 'application/json',
   },

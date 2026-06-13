@@ -15,7 +15,7 @@ const Signin = () => {
     e.preventDefault();
     setError('');
     try {
-      const { data } = await axios.post('http://localhost:8000/api/auth/signin', {
+      const { data } = await axios.post('https://ecom-skc5.onrender.com/api/auth/signin', {
         email,
         password,
       });
