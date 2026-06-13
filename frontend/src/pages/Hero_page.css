@@ -1,0 +1,361 @@
+/* =====================================================
+   Hero Page - Hero Section & Product Cards
+   ===================================================== */
+
+/* Hero Section */
+.hero-section {
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Glow effect */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background-color: #ffffff;
+  opacity: 0.1;
+  filter: blur(64px);
+  border-radius: 9999px;
+  width: 75%;
+  height: 75%;
+  margin: auto;
+  z-index: 5;
+}
+
+/* Hero Background Slider */
+.hero-bg-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 250vw;
+  height: 250vh;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  z-index: 1;
+  opacity: 0.9;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-bg-track {
+  display: flex;
+  gap: 32px;
+  animation: hero-slide-left 60s linear infinite;
+  width: max-content;
+}
+
+.hero-bg-track.reverse {
+  animation: hero-slide-right 60s linear infinite;
+}
+
+.hero-bg-item {
+  width: 160px;
+  height: 160px;
+  background-color: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #333;
+}
+
+@media (min-width: 768px) {
+  .hero-bg-item {
+    width: 300px;
+    height: 300px;
+    border-radius: 24px;
+    padding: 24px;
+  }
+}
+
+.hero-bg-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.5;
+}
+
+@keyframes hero-slide-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes hero-slide-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #dadada;
+  opacity: 0.5;
+  animation: bounce-indicator 2s infinite;
+}
+
+@keyframes bounce-indicator {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+}
+
+/* Product Section */
+.products-section {
+  background-color: #f9f9f9;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+/* Product image hover */
+.product-img {
+  width: 75%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+/* Footer */
+.footer-section {
+  background-color: #f9f9f9;
+  border-top: 1px solid #000000;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 40px 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 40px 64px;
+  }
+}
+
+/* Gallery Slider */
+.gallery-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 32px 0;
+  border-bottom: 1px solid #f4f4f5;
+  border-top: 1px solid #f4f4f5;
+}
+
+.gallery-track {
+  display: flex;
+  animation: slide-left 40s linear infinite;
+  width: max-content;
+}
+
+.gallery-track.reverse {
+  animation: slide-right 40s linear infinite;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+.gallery-item {
+  width: 180px;
+  height: 220px;
+  flex-shrink: 0;
+  background-color: #e2e2e3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #f4f4f5;
+  transition: border-color 0.3s;
+}
+
+@media (min-width: 768px) {
+  .gallery-item {
+    width: 280px;
+    height: 320px;
+    padding: 24px;
+  }
+}
+
+.gallery-item:hover {
+  border-color: #000000;
+}
+
+.gallery-item img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+@keyframes slide-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes slide-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Hero Vertical Slider (Right Side) */
+.hero-vertical-slider-container {
+  display: flex;
+  gap: 24px;
+  height: 80vh;
+  min-height: 600px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.hero-vertical-track {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: slide-up 40s linear infinite;
+  width: 50%;
+}
+
+.hero-vertical-track.reverse {
+  animation: slide-down 40s linear infinite;
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes slide-down {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.hero-vertical-item {
+  width: 100%;
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero-vertical-item:hover {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-vertical-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 20px 20px rgba(0,0,0,0.5));
+}
+
+/* Hide scrollbar for carousels */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
